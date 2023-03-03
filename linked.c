@@ -6,6 +6,34 @@ struct node {
     int num;
     struct node* next;
 };
+struct node* last_occur(struct node* head, int x) {
+    struct node* last = NULL;
+    while (head != NULL) {
+        if (head->data == x) {
+            last = head;
+        }
+        head = head->next;
+    }
+    return last;
+}
+void delete_node(struct node** head_ref, int x) {
+    struct node* current = *head_ref;
+    struct node* prev = NULL;
+    while (current != NULL && current->data != x) {
+        prev = current;
+        current = current->next;
+    }
+    if (current == NULL) {
+        return;
+    }
+    if (prev == NULL) {
+        *head_ref = current->next;
+    }
+    else {
+        prev->next = current->next;
+    }
+    free(current);
+}
 
 void insert_node(struct node** h, struct node** t, int v) {
     struct node* new_node = (struct node*) malloc(sizeof(struct node));
