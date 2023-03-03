@@ -78,6 +78,9 @@ int main(void) {
     printf("List: ");
     print_list(head);
     struct node* current = head;
+    insert_node(&head, &tail, 5); // insert node with value 5
+insert_node(&head, &tail, 10); // insert node with value 10
+    delete_node(&head, 5); 
     while (current != NULL) {
         struct node* temp = current;
         current = current->next;
