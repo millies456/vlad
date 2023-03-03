@@ -76,11 +76,12 @@ int main(void) {
     }
     printf("Size of list: %d\n", count);
     printf("List: ");
-    print_list(head);
-    struct node* current = head;
-    insert_node(&head, &tail, 5); // insert node with value 5
+     insert_node(&head, &tail, 5); // insert node with value 5
 insert_node(&head, &tail, 10); // insert node with value 10
     delete_node(&head, 5); 
+    print_list(head);
+    struct node* current = head;
+   
     while (current != NULL) {
         struct node* temp = current;
         current = current->next;
